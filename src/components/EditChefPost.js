@@ -1,4 +1,4 @@
-import React from 'react';
+import Reach from 'react';
 
 const EditChefPost = props => {
     return (
