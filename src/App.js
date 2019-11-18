@@ -4,7 +4,6 @@ import "./App.css";
 
 // local imports
 import Login from "./components/Login";
-import Recipe from "./components/Recipe";
 
 function App() {
   return (

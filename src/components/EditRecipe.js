@@ -1,9 +1,7 @@
-import Reach from 'react';
+import React from "react";
 
 const EditChefPost = props => {
-    return (
-        <div></div>
-    );
+  return <div></div>;
 };
 
 export default EditChefPost;
