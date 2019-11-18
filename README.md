@@ -1,46 +1,68 @@
-# Front-end
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Chef Portfolio, renamed Hearth and Steel aims to create a home for chef's to easily share their creations and give them ability to create, edit, and delete posts that are seen by users for all their food inspirations!
+## Available Scripts
 
-Read More on the [Technical Design Document] (https://docs.google.com/document/d/1Neh6gWz5hQp-e51je-Ngo2dgO5YKHvHCJW0uZqhALPs/edit#heading=h.lrymgwasdp9o)
+In the project directory, you can run:
 
-hey colin, please change this above link to the notion one once it's been uploaded 
+### `yarn start`
 
-[Trello Board](https://trello.com/b/yziAAhFC/chef-portfolio)
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The React front end portion of the application is deployed here
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
 
-# Motivation
+### `yarn test`
 
-As a food blogger, I want to be able to show off my work and recipes. I have a lot of amazing pics from the recipes i’ve created I'd like to share with potential clients, but I need a site that is more professional than Instagram in order to do so. I don’t have time or skills to build my own unique website, I need a site that provides templates so I can just input some information and be done.
+Launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## Implemented Features
+### `yarn build`
 
-- Chef's can sign up + login and create a post for their food blog that is attached to their page. (I think for now we should only have a log in, as there will be 3 chefs that we want to log in as to show off functionality of a chef)
-- A user can enter the site without authentication in order to view the chef's webpage and visit blog posts.
-- User's can search through recipe title, meal type, chef, and ingredients.
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## Getting Started
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-- Clone or download the project
-- Navigate into the directory and install dependencies
-- Run npm/yarn start in your app to get it up and running.
+### `yarn eject`
 
-## Technologies Used
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-- React
-- React Router 
-- Axios
-- Redux
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-## Acknowledgement 
+Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-[Lambda School](https://lambdaschool.com/)
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Authors
+## Learn More
 
-[Colin Bazzano](http://github.com/colinbazzano)
-[Andrew Ackerman](https://github.com/ackers93)
-[Aaron Pleitez](https://github.com/Playtez)
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+
+### Analyzing the Bundle Size
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+
+### Making a Progressive Web App
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+
+### Advanced Configuration
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `yarn build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
