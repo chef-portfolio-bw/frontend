@@ -12,7 +12,6 @@ function App() {
       <NavBar />
       <Router>
         <div className="App">
-          <h1>Hearth and Steel</h1>
           <Route exact path="/" component={Login} />
         </div>
       </Router>
