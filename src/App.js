@@ -5,6 +5,7 @@ import "./App.css";
 // local imports
 import Login from './components/Login';
 import NavBar from './components/NavBar';
+import ViewChefs from './components/ViewChefs';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <div className="App">
           <h1>Hearth and Steel</h1>
           <Route exact path="/" component={Login} />
+          <ViewChefs />
         </div>
       </Router>
     </div>
