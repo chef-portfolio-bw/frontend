@@ -14,7 +14,6 @@ import {
   CardContent,
   CardActions
 } from "@material-ui/core";
-
 import DeleteIcon from "@material-ui/icons/Delete";
 import ArchiveIcon from "@material-ui/icons/Archive";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
@@ -68,14 +67,14 @@ const Recipe = () => {
             <MoreVertIcon />
           </IconButton>
         }
-        title="dynamic name of dish"
+        title="hello" // {chef.name}
         subheader=" date of creation"
       />
       {/* end of <CardHeader/>  */}
       <CardMedia
         className={classes.media}
+        title="img title"
         image="https://picsum.photos/200"
-        title="Paella dish"
         alt="where the img actually will go"
       />
       <CardContent>
