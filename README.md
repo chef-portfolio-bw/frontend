@@ -3,8 +3,7 @@
 Chef Portfolio, renamed Hearth and Steel aims to create a home for chef's to easily share their creations and give them ability to create, edit, and delete posts that are seen by users for all their food inspirations!
 
 Read More on the [Technical Design Document] (https://docs.google.com/document/d/1Neh6gWz5hQp-e51je-Ngo2dgO5YKHvHCJW0uZqhALPs/edit#heading=h.lrymgwasdp9o)
-
-hey colin, please change this above link to the notion one once it's been uploaded 
+ 
 
 [Trello Board](https://trello.com/b/yziAAhFC/chef-portfolio)
 
