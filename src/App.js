@@ -3,16 +3,20 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 
 // local imports
-import Login from "./components/Login";
+import Login from './components/Login';
+import NavBar from './components/NavBar';
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <h1>Hearth and Steel</h1>
-        <Route exact path="/" component={Login} />
-      </div>
-    </Router>
+    <div>
+      <NavBar />
+      <Router>
+        <div className="App">
+          <h1>Hearth and Steel</h1>
+          <Route exact path="/" component={Login} />
+        </div>
+      </Router>
+    </div>
   );
 }
 
