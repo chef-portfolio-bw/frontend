@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ChefPageList = () => {
+const RecipeList = () => {
     return (
         <div></div>
     );
