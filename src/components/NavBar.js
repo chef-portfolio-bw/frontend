@@ -28,7 +28,7 @@ const Navbar = () => {
                 <IconButton edge="start" color="inherit" aria-label="menu">
                 </IconButton>
                 <Typography variant="h6" className={classes.typography}>
-                    Hearth and Stone
+                    Hearth and Steel
                 </Typography>
                 <div className={classes.buttonContainer}>
                     <Button color="inherit">Recipes</Button>
