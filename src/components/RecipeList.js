@@ -2,27 +2,46 @@ import React from "react";
 //import local
 //import axios from "axios";
 import chefs from "../data/data";
+import ChefCard from "./ChefCard";
 
 const RecipeList = () => {
-  const [data, setdata] = React.useState(chefs);
+  const [data, setData] = React.useState([]);
 
   // ========
   React.useEffect(() => {
-    console.log(data, "1");
+    setData(chefs);
 
-    // axios
-    //   .post("chefs")
-    //   .then(res => {
-    //     console.log(res);
-    //   })
-    //   .catch(err => {
-    //     console.log(err);
-    //   });
-  }, [chefs]); // end of useEffect make sure to add an array of the dependency
+    //     // axios
+    //     //   .post("chefs")
+    //     //   .then(res => {
+    //     //     console.log(res);
+    //     //   })
+    //     //   .catch(err => {
+    //     //     console.log(err);
+    //     //   });
+  }, []); // end of useEffect make sure to add an array of the dependency
 
   // =========
 
-  return <div></div>;
+  return (
+    <div>
+      {data.map(chef => {
+        return (
+          <ChefCard
+            name={chef.name}
+            location={chef.location}
+            email={chef.email}
+            bio={chef.bio}
+            posts={chef.posts}
+            post_titles={chef.posts.map(post => {
+              return post.title;
+            })}
+          />
+        );
+      })}
+      <h1> RecipeList</h1>
+    </div>
+  );
 };
 
 export default RecipeList;

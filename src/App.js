@@ -6,7 +6,8 @@ import "./App.css";
 import Login from "./components/Login";
 import NavBar from "./components/NavBar";
 import ViewChefs from "./components/ViewChefs";
-import Recipe from "./components/Recipe";
+// import Recipe from "./components/Recipe";
+import RecipeList from "./components/RecipeList";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
           <h1>Hearth and Steel</h1>
           <Route exact path="/" component={Login} />
           <ViewChefs />
-          <Recipe /> {/* make sure to delete before saving  */}
+          <RecipeList /> {/* make sure to delete before saving  */}
         </div>
       </Router>
     </div>
