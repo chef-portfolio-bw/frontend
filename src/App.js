@@ -1,6 +1,6 @@
-import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import "./App.css";
 
 // local imports
 import Login from './components/Login';
@@ -17,7 +17,6 @@ function App() {
         </div>
       </Router>
     </div>
-
   );
 }
 
