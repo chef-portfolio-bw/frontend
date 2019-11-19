@@ -3,8 +3,11 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 
 // local imports
-import Login from './components/Login';
-import NavBar from './components/NavBar';
+import Login from "./components/Login";
+import NavBar from "./components/NavBar";
+import ViewChefs from "./components/ViewChefs";
+// import Recipe from "./components/Recipe";
+import RecipeList from "./components/RecipeList";
 
 function App() {
   return (
@@ -13,6 +16,8 @@ function App() {
       <Router>
         <div className="App">
           <Route exact path="/" component={Login} />
+          <ViewChefs />
+          <RecipeList /> {/* make sure to delete before saving  */}
         </div>
       </Router>
     </div>

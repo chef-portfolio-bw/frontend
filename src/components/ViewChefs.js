@@ -2,7 +2,9 @@ import React from 'react';
 
 const ViewChefs = () => {
     return(
-        <div></div>
+        <div>
+            <h3>Some great chefs!</h3>
+        </div>
     );
 };
 

@@ -14,7 +14,6 @@ import {
   CardContent,
   CardActions
 } from "@material-ui/core";
-
 import DeleteIcon from "@material-ui/icons/Delete";
 import ArchiveIcon from "@material-ui/icons/Archive";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
@@ -47,7 +46,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Recipe = () => {
+const ChefCard = ({ name, location, email, bio, posts }) => {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -68,21 +67,19 @@ const Recipe = () => {
             <MoreVertIcon />
           </IconButton>
         }
-        title="dynamic name of dish"
-        subheader=" date of creation"
+        title={name}
+        subheader={location}
       />
       {/* end of <CardHeader/>  */}
       <CardMedia
         className={classes.media}
         image="https://picsum.photos/200"
-        title="Paella dish"
         alt="where the img actually will go"
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          This is Lorem ipsum impressive paella is a perfect party dish and a
-          fun meal to cook together with your guests. Add 1 cup of frozen peas
-          along with the mussels, if you like.
+          <h3>Biography:</h3>
+          {bio}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -108,8 +105,7 @@ const Recipe = () => {
         <CardContent>
           <Typography paragraph>Method:</Typography>
           <Typography paragraph>
-            Heat 1/2 cup of the broth in a pot until simmering, add saffron and
-            set aside for 10 minutes.
+            {posts.title}
             {/* add dynamic instructions */}
           </Typography>
         </CardContent>
@@ -118,12 +114,4 @@ const Recipe = () => {
   );
 };
 
-///end of card
-//probably will need to bring in a chef object in here
-// const Chef = () => {
-//     return (
-//         <div></div>
-//     );
-// };
-
-export default Recipe;
+export default ChefCard;
