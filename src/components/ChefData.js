@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 //import local
 import axios from "axios";
 //import chefs from "../data/data";
@@ -6,10 +6,10 @@ import ChefCard from "./ChefCard";
 import "./ChefStyling.css";
 
 const ChefData = () => {
-  const [data, setData] = React.useState([]);
+  const [data, setData] = useState([]);
 
   // ========
-  React.useEffect(() => {
+  useEffect(() => {
     // setData(chefs);
     axios
       .get("http://localhost:5000/api/chefs")
