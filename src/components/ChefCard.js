@@ -21,8 +21,7 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 
 const useStyles = makeStyles(theme => ({
   card: {
-    maxWidth: 245,
-    margin: "1%, auto"
+    maxWidth: 245
   },
   media: {
     height: 0,
@@ -69,10 +68,10 @@ const ChefCard = ({ name, location, bio, post_titles, id }) => {
         alt="where the img actually will go"
       />
       <CardContent>
-        <Typography variant="body2" color="textSecondary" component="h3">
-          <p>Biography: {id}</p>
+        <Typography variant="body2" color="textSecondary" component="p">
+          <h3>Biography: {id}</h3>
           {bio}
-          <p>{post_titles}</p>
+          <h4>{post_titles}</h4>
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
