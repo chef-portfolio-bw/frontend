@@ -1,8 +1,8 @@
 import React from "react";
 //import local
-//import axios from "axios";
-import chefs from "../data/data";
-import ChefCard from "./ChefCard";
+import axios from "axios";
+//import chefs from "../data/data";
+// import ChefCard from "./ChefCard";
 import "./ChefStyling.css";
 
 const ChefData = () => {
@@ -10,16 +10,16 @@ const ChefData = () => {
 
   // ========
   React.useEffect(() => {
-    setData(chefs);
-
-    //     // axios
-    //     //   .post("chefs")
-    //     //   .then(res => {
-    //     //     console.log(res);
-    //     //   })
-    //     //   .catch(err => {
-    //     //     console.log(err);
-    //     //   });
+    // setData(chefs);
+    axios
+      .get("http://localhost:5000/api/chefs")
+      .then(res => {
+        setData(res);
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }, []); // end of useEffect make sure to add an array of the dependency
 
   // =========
@@ -27,7 +27,7 @@ const ChefData = () => {
   return (
     <div>
       <div className="Chef-Card">
-        {data.map(chef => {
+        {/* {data.map(chef => {
           return (
             <ChefCard
               id={Date.now()}
@@ -41,7 +41,7 @@ const ChefData = () => {
               })}
             />
           );
-        })}
+        })} */}
       </div>
       <h1> RecipeList</h1>
     </div>
