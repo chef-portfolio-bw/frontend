@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react';
+import { useDispatch } from 'react-redux';
+import { registerUser } from '../actions';
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import Checkbox from "@material-ui/core/Checkbox";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Cheesecake from '../images/Cheesecake.jpg'
 import ChipsAndGuacamole from '../images/ChipsAndGuacamole.jpg'

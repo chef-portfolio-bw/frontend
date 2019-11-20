@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { axiosWithAuth } from '../utils/axiosWithAuth';
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { loginUser } from '../actions';
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Checkbox from "@material-ui/core/Checkbox";
@@ -74,20 +76,12 @@ const useStyles = makeStyles({
 const Login = props => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const dispatch = useDispatch();
     const classes = useStyles();
 
     const handleSubmit = e => {
         e.preventDefault();
-        axiosWithAuth()
-            .post('', {
-                username: username,
-                password: password
-            })
-            .then(res => {
-                localStorage.setItem('token', res.data.payload);
-                props.history.push('');
-            })
-            .catch(err => console.log(err));
+        dispatch(loginUser(username, password));
     };
 
     return (
@@ -117,14 +111,17 @@ const Login = props => {
                     />Remember Me
                 </label>
                 <Button type="submit" className={classes.logIn}>Log In</Button>
+                <p>
+                    Don't have an account? <Link to="/register">Sign up now!</Link>
+                </p>
             </form>
 
             <div className={classes.rightDiv}>
                 <div className={classes.rightTop}>
-                    <img className={classes.imgOne} src={Cheesecake} />
-                    <img className={classes.imgTwo} src={ChipsAndGuacamole} />
+                    <img className={classes.imgOne} src={Cheesecake} alt="Cheesecake" />
+                    <img className={classes.imgTwo} src={ChipsAndGuacamole} alt="chips and guacamole" />
                 </div>
-                <img className={classes.imgThree} src={KnifeAndSteel} />
+                <img className={classes.imgThree} src={KnifeAndSteel} alt="knife on board" />
             </div>
         </div>
     );
