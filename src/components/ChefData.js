@@ -2,7 +2,7 @@ import React from "react";
 //import local
 import axios from "axios";
 //import chefs from "../data/data";
-// import ChefCard from "./ChefCard";
+import ChefCard from "./ChefCard";
 import "./ChefStyling.css";
 
 const ChefData = () => {
@@ -14,8 +14,8 @@ const ChefData = () => {
     axios
       .get("http://localhost:5000/api/chefs")
       .then(res => {
-        setData(res);
-        console.log(res);
+        setData(res.data);
+        console.log(res.data);
       })
       .catch(err => {
         console.log(err);
@@ -27,10 +27,10 @@ const ChefData = () => {
   return (
     <div>
       <div className="Chef-Card">
-        {/* {data.map(chef => {
+        {data.map(chef => {
           return (
             <ChefCard
-              id={Date.now()}
+              id={chef.id}
               name={chef.name}
               location={chef.location}
               email={chef.email}
@@ -41,7 +41,7 @@ const ChefData = () => {
               })}
             />
           );
-        })} */}
+        })}
       </div>
       <h1> RecipeList</h1>
     </div>

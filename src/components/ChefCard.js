@@ -16,8 +16,8 @@ import {
 
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 
-//import { BrowserRouter as Router, Route } from "react-router-dom";
-//import ChefPostsCards from "./ChefPostsCards";
+import { Route, Link } from "react-router-dom";
+import ChefPostsCards from "./ChefPostsCards";
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -46,45 +46,44 @@ const ChefCard = ({ name, location, bio, post_titles, id }) => {
   const classes = useStyles();
 
   return (
-    <Card className={classes.card}>
-      <CardHeader
-        avatar={
-          <Avatar aria-label="recipe" className={classes.avatar}>
-            R
-          </Avatar>
-        }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
-        title={name}
-        subheader={location}
-      />
-      {/* end of <CardHeader/>  */}
-      <CardMedia
-        className={classes.media}
-        image="https://picsum.photos/200"
-        alt="where the img actually will go"
-      />
-      <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
-          <h3>Biography: {id}</h3>
-          {bio}
-          <h4>{post_titles}</h4>
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <Button type="submit" className={classes.button}>
-          See Posted Recipes
-        </Button>
-      </CardActions>
-    </Card>
+    <div>
+      <Card id={id} className={classes.card}>
+        <CardHeader
+          avatar={
+            <Avatar aria-label="recipe" className={classes.avatar}>
+              R
+            </Avatar>
+          }
+          action={
+            <IconButton aria-label="settings">
+              <MoreVertIcon />
+            </IconButton>
+          }
+          title={name}
+          subheader={location}
+        />
+        {/* end of <CardHeader/>  */}
+        <CardMedia
+          className={classes.media}
+          image="https://picsum.photos/200"
+          alt="where the img actually will go"
+        />
+        <CardContent>
+          <h3>Biography:</h3>
+          <Typography variant="body2" color="textSecondary" component="p">
+            {bio}
+          </Typography>
+          <h4> {post_titles}</h4>
+        </CardContent>
+        <CardActions disableSpacing>
+          <Link to="/path" type="submit" className={classes.button}>
+            See Posted Recipes
+          </Link>
+        </CardActions>
+      </Card>
+      <Route path="/path" component={ChefPostsCards} />
+    </div>
   );
 };
 
 export default ChefCard;
-
-// <IconButton aria-label="delete">
-//   <DeleteIcon />
-// </IconButton>

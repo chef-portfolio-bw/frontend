@@ -17,7 +17,7 @@ function App() {
           <Route exact path="/" component={Login} />
           <ViewChefs />
           <ChefData
-          // path="/"
+
           // render={...props}
           />
           {/* make sure to delete before saving  */}
