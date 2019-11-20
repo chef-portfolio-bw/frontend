@@ -6,8 +6,7 @@ import "./App.css";
 import Login from "./components/Login";
 import NavBar from "./components/NavBar";
 import ViewChefs from "./components/ViewChefs";
-// import Recipe from "./components/Recipe";
-import RecipeList from "./components/RecipeList";
+import ChefData from "./components/ChefData";
 
 function App() {
   return (
@@ -17,7 +16,7 @@ function App() {
         <div className="App">
           <Route exact path="/" component={Login} />
           <ViewChefs />
-          <RecipeList /> {/* make sure to delete before saving  */}
+          <ChefData /> {/* make sure to delete before saving  */}
         </div>
       </Router>
     </div>

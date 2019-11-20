@@ -4,8 +4,7 @@ import React from "react";
 import chefs from "../data/data";
 import ChefCard from "./ChefCard";
 
-const RecipeList = () => {
-
+const ChefData = () => {
   const [data, setData] = React.useState([]);
 
   // ========
@@ -45,4 +44,4 @@ const RecipeList = () => {
   );
 };
 
-export default RecipeList;
+export default ChefData;
