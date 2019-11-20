@@ -55,7 +55,7 @@ export const logoutUser = () => dispatch => {
             localStorage.removeItem('token');
 
             dispatch({ type: LOGOUT_SUCCESS });
-            history.push('')
+            history.push('/login')
         })
         .catch(err => dispatch({ type: LOGIN_FAILURE, payload: err }));
 }
@@ -70,7 +70,7 @@ export const fetchChefs = () => dispatch => {
     dispatch({ type: FETCH_CHEFS_START });
 
     axios
-        .get('')
+        .get('/api/posts/all')
         .then(res => dispatch({ type: FETCH_CHEFS_SUCCESS, payload: res.data }))
         .catch(err => dispatch({ type: FETCH_CHEFS_FAILURE, payload: err.response }));
 };
