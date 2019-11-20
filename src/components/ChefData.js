@@ -3,6 +3,7 @@ import React from "react";
 //import axios from "axios";
 import chefs from "../data/data";
 import ChefCard from "./ChefCard";
+import "./ChefStyling.css";
 
 const ChefData = () => {
   const [data, setData] = React.useState([]);
@@ -25,20 +26,23 @@ const ChefData = () => {
 
   return (
     <div>
-      {data.map(chef => {
-        return (
-          <ChefCard
-            name={chef.name}
-            location={chef.location}
-            email={chef.email}
-            bio={chef.bio}
-            posts={chef.posts}
-            post_titles={chef.posts.map(post => {
-              return post.title;
-            })}
-          />
-        );
-      })}
+      <div className="Chef-Card">
+        {data.map(chef => {
+          return (
+            <ChefCard
+              id={Date.now()}
+              name={chef.name}
+              location={chef.location}
+              email={chef.email}
+              bio={chef.bio}
+              posts={chef.posts}
+              post_titles={chef.posts.map(post => {
+                return post.title;
+              })}
+            />
+          );
+        })}
+      </div>
       <h1> RecipeList</h1>
     </div>
   );

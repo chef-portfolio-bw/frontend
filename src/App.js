@@ -16,7 +16,11 @@ function App() {
         <div className="App">
           <Route exact path="/" component={Login} />
           <ViewChefs />
-          <ChefData /> {/* make sure to delete before saving  */}
+          <ChefData
+          // path="/"
+          // render={...props}
+          />
+          {/* make sure to delete before saving  */}
         </div>
       </Router>
     </div>

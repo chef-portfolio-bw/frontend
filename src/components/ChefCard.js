@@ -1,27 +1,23 @@
 import React from "react";
 // the actual chef card.
 import { makeStyles } from "@material-ui/core/styles";
-import clsx from "clsx";
 import { red } from "@material-ui/core/colors";
 import {
   Typography,
   IconButton,
   Avatar,
-  Collapse,
   Card,
   CardHeader,
   CardMedia,
   CardContent,
-  CardActions
+  CardActions,
+  Button
 } from "@material-ui/core";
-import DeleteIcon from "@material-ui/icons/Delete";
-import ArchiveIcon from "@material-ui/icons/Archive";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 
-// if we want to import stretch
-// import FavoriteIcon from "@material-ui/icons/Favorite";
-// import ShareIcon from "@material-ui/icons/Share";
+//import { BrowserRouter as Router, Route } from "react-router-dom";
+//import ChefPostsCards from "./ChefPostsCards";
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -46,13 +42,8 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const ChefCard = ({ name, location, email, bio, posts }) => {
+const ChefCard = ({ name, location, bio, post_titles, id }) => {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
 
   return (
     <Card className={classes.card}>
@@ -78,40 +69,22 @@ const ChefCard = ({ name, location, email, bio, posts }) => {
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          <h3>Biography:</h3>
+          <h3>Biography: {id}</h3>
           {bio}
+          <h4>{post_titles}</h4>
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="archive">
-          <ArchiveIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <DeleteIcon />
-        </IconButton>
-        <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded
-          })}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </IconButton>
+        <Button type="submit" className={classes.button}>
+          See Posted Recipes
+        </Button>
       </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        {/* this is inside the dropdown! */}
-        <CardContent>
-          <Typography paragraph>Method:</Typography>
-          <Typography paragraph>
-            {posts.title}
-            {/* add dynamic instructions */}
-          </Typography>
-        </CardContent>
-      </Collapse>
     </Card>
   );
 };
 
 export default ChefCard;
+
+// <IconButton aria-label="delete">
+//   <DeleteIcon />
+// </IconButton>
