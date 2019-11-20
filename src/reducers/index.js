@@ -2,6 +2,9 @@ import {
     START_LOGIN,
     LOGIN_SUCCESS,
     LOGIN_FAILURE,
+    START_REGISTER,
+    REGISTER_SUCCESS,
+    REGISTER_FAILURE,
     START_LOGOUT,
     LOGOUT_SUCCESS,
     LOGOUT_FAILURE,
@@ -24,6 +27,7 @@ const initialState = {
     isLogging: false,
     isEditing: false,
     isLoggingOut: false,
+    isRegistering: false,
     isDeleting: false,
     isFetching: false,
     isPosting: false,
@@ -33,6 +37,7 @@ const initialState = {
     errorDeleting: null,
     errorFetching: null,
     errorEditing: null,
+    errorRegistering: null,
     userLogged: false,
     chefPosts: []
 };
@@ -45,6 +50,13 @@ export const reducer = (state = initialState, action) => {
             return {...state, isLogging: false, userLogged: true};
         case LOGIN_FAILURE: 
             return {...state, errorLogin: action.payload, isLogging: false};
+
+        case START_REGISTER:
+            return {...state, errorRegistering: null, isRegistering: true};
+        case REGISTER_SUCCESS:
+            return {...state, isRegistering: false, userLogged: true};
+        case REGISTER_FAILURE:
+            return {...state, errorRegistering: action.payload, isRegistering: false};
 
         case START_LOGOUT:
             return {...state, errorLogout: null, isLoggingOut: true};

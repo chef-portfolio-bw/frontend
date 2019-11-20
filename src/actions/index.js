@@ -1,95 +1,117 @@
-// import axios from 'axios';
-// import { axiosWithAuth } from '../utils/axiosWithAuth';
+import axios from 'axios';
+import { axiosWithAuth } from '../utils/axiosWithAuth';
+import history from '../history/history';
 
-// // LOG IN ACTIONS
-// export const START_LOGIN = 'START_LOGIN';
-// export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
-// export const LOGIN_FAILURE = 'LOGIN_FAILURE';
+// LOG IN ACTIONS
+export const START_LOGIN = 'START_LOGIN';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 
-// export const loginUser = (username, password) => dispatch => {
-//     dispatch({ type: START_LOGIN });
+export const loginUser = (username, password) => dispatch => {
+    dispatch({ type: START_LOGIN });
 
-//     axios
-//         .post('')
-//         .then(res => {
-//             localStorage.setItem('token', res.data.access_token);
-//             dispatch({ type: LOGIN_SUCCESS });
-//             history.push('');
-//         })
-//         .catch(err => dispatch({ type: LOGIN_FAILURE, payload: err }));
-// };
+    axiosWithAuth()
+        .post('https://chef-portfoliosis.herokuapp.com/api/auth/login', {
+            username: username,
+            password: password
+        })
+        .then(res => {
+            localStorage.setItem('token', res.data.access_token);
+            dispatch({ type: LOGIN_SUCCESS });
+            history.push('/');
+        })
+        .catch(err => dispatch({ type: LOGIN_FAILURE, payload: err }));
+};
 
-// // LOG OUT ACTIONS
+// REGISTER ACTIONS
 
-// export const START_LOGOUT = 'START_LOGOUT';
-// export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
-// export const LOGOUT_FAILURE = 'LOGOUT_FAILURE';
+export const START_REGISTER = 'START_REGISTER';
+export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
+export const REGISTER_FAILURE = 'REGISTER_FAILURE';
+export const registerUser = newUser => dispatch => {
+    dispatch({ type: START_REGISTER });
+    axios
+        .post('https://chef-portfoliosis.herokuapp.com/api/auth/register', newUser)
+        .then(res => {
+            localStorage.setItem('token', res.data.access_token);
 
-// export const logoutUser = () => dispatch => {
-//     dispatch({ type: START_LOGOUT });
-//     axiosWithAuth()
-//         .get('logout')
-//         .then(res => {
-//             localStorage.removeItem('token');
+            dispatch({ type: REGISTER_SUCCESS });
+            history.push('/');
+        })
+        .catch(err => dispatch({ type: REGISTER_FAILURE, payload: err }));
+}
 
-//             dispatch({ type: LOGOUT_SUCCESS });
-//             history.push('')
-//         })
-//         .catch(err => dispatch({ type: LOGIN_FAILURE, payload: err }));
-// }
+// LOG OUT ACTIONS
 
-// // FETCH THE CHEFS DATA 
+export const START_LOGOUT = 'START_LOGOUT';
+export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
+export const LOGOUT_FAILURE = 'LOGOUT_FAILURE';
 
-// export const FETCH_CHEFS_START = 'FETCH_CHEFS_START';
-// export const FETCH_CHEFS_SUCCESS = 'FETCH_CHEFS_SUCCESS';
-// export const FETCH_CHEFS_FAILURE = 'FETCH_CHEFS_FAILURE';
+export const logoutUser = () => dispatch => {
+    dispatch({ type: START_LOGOUT });
+    axiosWithAuth()
+        .get('logout')
+        .then(res => {
+            localStorage.removeItem('token');
 
-// export const fetchChefs = () => dispatch => {
-//     dispatch({ type: FETCH_CHEFS_START });
+            dispatch({ type: LOGOUT_SUCCESS });
+            history.push('')
+        })
+        .catch(err => dispatch({ type: LOGIN_FAILURE, payload: err }));
+}
 
-//     axios
-//         .get('')
-//         .then(res => dispatch({ type: FETCH_CHEFS_SUCCESS, payload: res.data }))
-//         .catch(err => dispatch({ type: FETCH_CHEFS_FAILURE, payload: error.response }));
-// };
+// FETCH THE CHEFS DATA 
 
-// // POST THE NEW CHEF DATA
+export const FETCH_CHEFS_START = 'FETCH_CHEFS_START';
+export const FETCH_CHEFS_SUCCESS = 'FETCH_CHEFS_SUCCESS';
+export const FETCH_CHEFS_FAILURE = 'FETCH_CHEFS_FAILURE';
 
-// export const POST_CHEFS_START = 'POST_CHEFS_START';
-// export const POST_CHEFS_SUCCESS = 'POST_CHEFS_SUCCESS';
-// export const POST_CHEFS_FAILURE = 'POST_CHEFS_FAILURE';
+export const fetchChefs = () => dispatch => {
+    dispatch({ type: FETCH_CHEFS_START });
 
-// export const postChefs = data = dispatch => {
-//     dispatch({ type: POST_CHEFS_START });
+    axios
+        .get('')
+        .then(res => dispatch({ type: FETCH_CHEFS_SUCCESS, payload: res.data }))
+        .catch(err => dispatch({ type: FETCH_CHEFS_FAILURE, payload: err.response }));
+};
 
-//     axios
-//         .post('', data)
-//         .then(res => console.log('New Chef Post Created', res))
-//         .catch(err => dispatch({ type: POST_CHEFS_FAILURE, payload: error.response }));
-// };
+// POST THE NEW CHEF DATA
 
-// export const START_DELETE_POST = 'START_DELETE_POST';
-// export const DELETE_POST_SUCCESS = 'DELETE_POST_SUCCESS';
-// export const DELETE_POST_FAILURE = 'DELETE_POST_FAILURE';
+export const POST_CHEFS_START = 'POST_CHEFS_START';
+export const POST_CHEFS_SUCCESS = 'POST_CHEFS_SUCCESS';
+export const POST_CHEFS_FAILURE = 'POST_CHEFS_FAILURE';
 
-// export const deletePost = id => dispatch => {
-//     dispatch({ type: START_DELETE_POST });
+export const postChefs = data => dispatch => {
+    dispatch({ type: POST_CHEFS_START });
 
-//     axiosWithAuth()
-//         .delete(``)
-//         .then(res => dispatch({ type: DELETE_POST_SUCCESS, payload: res.data }))
-//         .catch(err => dispatch({ type: DELETE_POST_FAILURE, payload: err}));
-// };
+    axios
+        .post('https://chef-portfoliosis.herokuapp.com/api/posts', data)
+        .then(res => console.log('New Chef Post Created', res))
+        .catch(err => dispatch({ type: POST_CHEFS_FAILURE, payload: err.response }));
+};
 
-// export const START_EDIT_POST = 'START_EDIT_POST';
-// export const EDIT_POST_SUCCESS = 'EDIT_POST_SUCCESS';
-// export const EDIT_POST_FAILURE = 'EDIT_POST_FAILURE';
+export const START_DELETE_POST = 'START_DELETE_POST';
+export const DELETE_POST_SUCCESS = 'DELETE_POST_SUCCESS';
+export const DELETE_POST_FAILURE = 'DELETE_POST_FAILURE';
 
-// export const editPost = id => dispatch => {
-//     dispatch({ type: START_EDIT_POST });
+export const deletePost = id => dispatch => {
+    dispatch({ type: START_DELETE_POST });
 
-//     axiosWithAuth() 
-//         .put(``)
-//         .then(res => dispatch({ type: EDIT_POST_SUCCESS, payload: res.data }))
-//         .catch(err => dispatch({ type: EDIT_POST_FAILURE, payload: err }));
-// };
+    axiosWithAuth()
+        .delete(``)
+        .then(res => dispatch({ type: DELETE_POST_SUCCESS, payload: res.data }))
+        .catch(err => dispatch({ type: DELETE_POST_FAILURE, payload: err}));
+};
+
+export const START_EDIT_POST = 'START_EDIT_POST';
+export const EDIT_POST_SUCCESS = 'EDIT_POST_SUCCESS';
+export const EDIT_POST_FAILURE = 'EDIT_POST_FAILURE';
+
+export const editPost = id => dispatch => {
+    dispatch({ type: START_EDIT_POST });
+
+    axiosWithAuth() 
+        .put(``)
+        .then(res => dispatch({ type: EDIT_POST_SUCCESS, payload: res.data }))
+        .catch(err => dispatch({ type: EDIT_POST_FAILURE, payload: err }));
+};
