@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 // import { useDispatch } from 'react-redux';
 //import local
-import axios from "axios";
+// import axios from "axios";
 //import chefs from "../data/data";
 import ChefCard from "./ChefCard";
+import NewChefPost from './NewChefPost';
 import "./ChefStyling.css";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 
@@ -29,6 +30,7 @@ const ChefData = () => {
 
   return (
     <div>
+       <NewChefPost />
       {/* {data.map(chef => {
         return (<div key={chef.id}>
           <h1>{chef.chef_name}</h1>

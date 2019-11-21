@@ -7,7 +7,7 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import NavBar from "./components/NavBar";
 import PrivateRoute from "./components/PrivateRoute";
-import ViewChefs from "./components/ViewChefs";
+// import ViewChefs from "./components/ViewChefs";
 import ChefData from "./components/ChefData";
 import history from "./history/history";
 
