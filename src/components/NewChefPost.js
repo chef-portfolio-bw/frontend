@@ -10,16 +10,17 @@ const useStyles = makeStyles({})
 
 
 const NewChefPost = props => {
-    const [chefLocation, setChefLocation] = useState('');
-    const [chefName, setChefName] = useState('');
-    const [recipeName, setRecipeName] = useState('');
-    const [ingredients, setIngredients] = useState('');
+    const [chef_location, setChefLocation] = useState('');
+    const [chef_name, setChefName] = useState('');
+    const [recipe_title, setRecipeName] = useState('');
+    const [item_ingredients, setIngredients] = useState('');
     const dispatch = useDispatch();
     const classes = useStyles();
 
     const handleSubmit = e => {
         e.preventDefault();
-        dispatch(postChefs(chefName, chefLocation, recipeName, ingredients));
+        dispatch(postChefs({
+            chef_name, chef_location, recipe_title, item_ingredients}));
         // Redux Action performed here.
         // export const POST_CHEFS_START = 'POST_CHEFS_START';
         // export const POST_CHEFS_SUCCESS = 'POST_CHEFS_SUCCESS';
@@ -42,7 +43,7 @@ const NewChefPost = props => {
                     type="text"
                     name="Location"
                     placeholder="Location"
-                    value={chefLocation}  //axios call
+                    value={chef_location}  //axios call
                     onChange={e => setChefLocation(e.target.value)}
                 />
 
@@ -52,7 +53,7 @@ const NewChefPost = props => {
                     type="text"
                     name="Chef Name"
                     placeholder="Chef Name"
-                    value={chefName} //axios call
+                    value={chef_name} //axios call
                     onChange={e => setChefName(e.target.value)}
                 />
 
@@ -62,7 +63,7 @@ const NewChefPost = props => {
                     type="textarea"
                     name="recipe_name"
                     placeholder="Recipe Name"
-                    value={recipeName} //axios call
+                    value={recipe_title} //axios call
                     onChange={e => setRecipeName(e.target.value)}
                 />
 
@@ -72,7 +73,7 @@ const NewChefPost = props => {
                     type="textarea"
                     name="Ingredients"
                     placeholder="Ingredients"
-                    value={ingredients} // axios call
+                    value={item_ingredients} // axios call
                     onChange={e => setIngredients(e.target.value)}
                 />
 

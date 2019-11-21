@@ -16,7 +16,7 @@ export const loginUser = (username, password) => dispatch => {
             password: password
         })
         .then(res => {
-            localStorage.setItem('token', res.data.access_token);
+            localStorage.setItem('token', res.data.token);
             dispatch({ type: LOGIN_SUCCESS });
             history.push('/');
         })
@@ -85,7 +85,7 @@ export const postChefs = data => dispatch => {
     dispatch({ type: POST_CHEFS_START });
 
     axiosWithAuth()
-        .post('/api/posts/all', data)
+        .post('/api/posts/', data)
         .then(res => dispatch({ type: POST_CHEFS_SUCCESS, payload: res.data }))
         .catch(err => dispatch({ type: POST_CHEFS_FAILURE, payload: err.response }));
 };
@@ -98,7 +98,7 @@ export const deletePost = id => dispatch => {
     dispatch({ type: START_DELETE_POST });
 
     axiosWithAuth()
-        .delete(``)
+        .delete(`/api/posts/${id}`)
         .then(res => dispatch({ type: DELETE_POST_SUCCESS, payload: res.data }))
         .catch(err => dispatch({ type: DELETE_POST_FAILURE, payload: err}));
 };
@@ -111,7 +111,7 @@ export const editPost = id => dispatch => {
     dispatch({ type: START_EDIT_POST });
 
     axiosWithAuth() 
-        .put(``)
+        .put(`/api/posts/${id}`)
         .then(res => dispatch({ type: EDIT_POST_SUCCESS, payload: res.data }))
         .catch(err => dispatch({ type: EDIT_POST_FAILURE, payload: err }));
 };
