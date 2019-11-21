@@ -11,6 +11,8 @@ import ViewChefs from "./components/ViewChefs";
 import ChefData from "./components/ChefData";
 import history from './history/history';
 
+import NewChefPost from "./components/NewChefPost";
+
 function App() {
   return (
     <div>
@@ -25,6 +27,7 @@ function App() {
           // path="/"
           // render={...props}
           /> */}
+          <NewChefPost />
           {/* make sure to delete before saving  */}
         </div>
       </Router>
