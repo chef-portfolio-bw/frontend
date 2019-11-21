@@ -24,6 +24,7 @@ import ChefPostsCards from "./ChefPostsCards";
 
 const useStyles = makeStyles(theme => ({
   card: {
+    margin: "1% auto",
     width: 300,
     height: 450,
   },
