@@ -29,7 +29,7 @@ const ChefData = () => {
 
   return (
     <div>
-      {data.map(chef => {
+      {/* {data.map(chef => {
         return (<div key={chef.id}>
           <h1>{chef.chef_name}</h1>
           <p>{chef.chef_location}</p>
@@ -38,24 +38,21 @@ const ChefData = () => {
           <p>{chef.item_ingredients}</p>
         </div>
         )
-      })}
-      {/* <div className="Chef-Card">
+      })} */}
+      <div className="Chef-Card">
         {data.map(chef => {
           return (
-            // <ChefCard
-            //   id={chef.id}
-            //   name={chef.name}
-            //   location={chef.location}
-            //   email={chef.email}
-            //   bio={chef.bio}
-            //   posts={chef.posts}
-            //   post_titles={chef.posts.map(post => {
-            //     return post.title;
-            //   })}
-            // />
+            <ChefCard
+              key={chef.id}
+              name={chef.chef_name}
+              location={chef.chef_location}
+              recipe={chef.recipe_title}
+              image={chef.item_photo}
+              ingred={chef.item_ingredients}
+            />
           );
         })}
-      </div> */}
+      </div>
     </div>
   );
 };

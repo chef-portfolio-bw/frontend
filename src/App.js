@@ -3,15 +3,15 @@ import { Router, Route } from "react-router-dom";
 import "./App.css";
 
 // local imports
-import Register from './components/Register';
+import Register from "./components/Register";
 import Login from "./components/Login";
 import NavBar from "./components/NavBar";
-import PrivateRoute from './components/PrivateRoute';
+import PrivateRoute from "./components/PrivateRoute";
 import ViewChefs from "./components/ViewChefs";
 import ChefData from "./components/ChefData";
-import history from './history/history';
+import history from "./history/history";
 
-import NewChefPost from "./components/NewChefPost";
+// import NewChefPost from "./components/NewChefPost";
 
 function App() {
   return (
@@ -27,7 +27,7 @@ function App() {
           // path="/"
           // render={...props}
           /> */}
-          <NewChefPost />
+          {/* <NewChefPost /> */}
           {/* make sure to delete before saving  */}
         </div>
       </Router>

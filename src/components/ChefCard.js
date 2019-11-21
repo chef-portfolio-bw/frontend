@@ -10,18 +10,20 @@ import {
   CardHeader,
   CardMedia,
   CardContent,
-  CardActions,
-  Button
+  CardActions
 } from "@material-ui/core";
 
 import MoreVertIcon from "@material-ui/icons/MoreVert";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import DeleteIcon from "@material-ui/icons/Delete";
 
 import { Route, Link } from "react-router-dom";
 import ChefPostsCards from "./ChefPostsCards";
 
 const useStyles = makeStyles(theme => ({
   card: {
-    maxWidth: 245
+    width: 300,
+    height: 450
   },
   media: {
     height: 0,
@@ -38,20 +40,21 @@ const useStyles = makeStyles(theme => ({
     transform: "rotate(180deg)"
   },
   avatar: {
-    backgroundColor: red[500]
+    backgroundColor: red[500],
+    fontSize: 10
   }
 }));
 
-const ChefCard = ({ name, location, bio, post_titles, id }) => {
+const ChefCard = ({ key, name, location, recipe, image, ingred }) => {
   const classes = useStyles();
 
   return (
     <div>
-      <Card id={id} className={classes.card}>
+      <Card id={key} className={classes.card}>
         <CardHeader
           avatar={
             <Avatar aria-label="recipe" className={classes.avatar}>
-              R
+              Chef
             </Avatar>
           }
           action={
@@ -65,17 +68,21 @@ const ChefCard = ({ name, location, bio, post_titles, id }) => {
         {/* end of <CardHeader/>  */}
         <CardMedia
           className={classes.media}
-          image="https://picsum.photos/200"
+          image={image}
           alt="where the img actually will go"
         />
         <CardContent>
-          <h3>Biography:</h3>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {bio}
-          </Typography>
-          <h4> {post_titles}</h4>
+          <h3>{recipe}:</h3>
+
+          <Typography paragraph>Ingredients: {ingred}</Typography>
         </CardContent>
         <CardActions disableSpacing>
+          <IconButton>
+            <ExpandMoreIcon />
+          </IconButton>
+          <IconButton>
+            <DeleteIcon />
+          </IconButton>
           <Link to="/path" type="submit" className={classes.button}>
             See Posted Recipes
           </Link>
