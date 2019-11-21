@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
+import { useDispatch } from 'react-redux';
+import { postChefs } from '../actions';
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
@@ -12,10 +14,12 @@ const NewChefPost = props => {
     const [chefName, setChefName] = useState('');
     const [recipeName, setRecipeName] = useState('');
     const [ingredients, setIngredients] = useState('');
+    const dispatch = useDispatch();
     const classes = useStyles();
 
     const handleSubmit = e => {
         e.preventDefault();
+        dispatch(postChefs(chefName, chefLocation, recipeName, ingredients));
         // Redux Action performed here.
         // export const POST_CHEFS_START = 'POST_CHEFS_START';
         // export const POST_CHEFS_SUCCESS = 'POST_CHEFS_SUCCESS';

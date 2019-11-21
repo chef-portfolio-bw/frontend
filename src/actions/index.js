@@ -84,9 +84,9 @@ export const POST_CHEFS_FAILURE = 'POST_CHEFS_FAILURE';
 export const postChefs = data => dispatch => {
     dispatch({ type: POST_CHEFS_START });
 
-    axios
-        .post('https://chef-portfoliosis.herokuapp.com/api/posts', data)
-        .then(res => console.log('New Chef Post Created', res))
+    axiosWithAuth()
+        .post('/api/posts/all', data)
+        .then(res => dispatch({ type: POST_CHEFS_SUCCESS, payload: res.data }))
         .catch(err => dispatch({ type: POST_CHEFS_FAILURE, payload: err.response }));
 };
 
