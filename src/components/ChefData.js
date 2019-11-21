@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 // import { useDispatch } from 'react-redux';
 //import local
-import axios from "axios";
+// import axios from "axios";
 //import chefs from "../data/data";
 import ChefCard from "./ChefCard";
 import NewChefPost from './NewChefPost';

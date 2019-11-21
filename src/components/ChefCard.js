@@ -49,7 +49,7 @@ const ChefCard = ({ key, name, location, recipe, image, ingred }) => {
   const classes = useStyles();
 
   return (
-    <div>
+    <div className="card-container">
       <Card id={key} className={classes.card}>
         <CardHeader
           avatar={
@@ -72,7 +72,7 @@ const ChefCard = ({ key, name, location, recipe, image, ingred }) => {
           alt="where the img actually will go"
         />
         <CardContent>
-          <h3>{recipe}:</h3>
+          <h3>{recipe}</h3>
 
           <Typography paragraph>Ingredients: {ingred}</Typography>
         </CardContent>
