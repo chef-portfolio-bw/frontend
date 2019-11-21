@@ -8,9 +8,9 @@ import {
     START_LOGOUT,
     LOGOUT_SUCCESS,
     LOGOUT_FAILURE,
-    FETCH_CHEFS_START,
-    FETCH_CHEFS_SUCCESS,
-    FETCH_CHEFS_FAILURE,
+    FETCH_POSTS_START,
+    FETCH_POSTS_SUCCESS,
+    FETCH_POSTS_FAILURE,
     POST_CHEFS_START,
     POST_CHEFS_SUCCESS,
     POST_CHEFS_FAILURE,
@@ -65,24 +65,24 @@ export const reducer = (state = initialState, action) => {
         case LOGOUT_FAILURE:
             return {...state, errorLogout: action.payload, isLoggingOut: false};
 
-        case FETCH_CHEFS_START: 
+        case FETCH_POSTS_START: 
             return {...state, errorFetching: null, isFetching: true};
-        case FETCH_CHEFS_SUCCESS:
+        case FETCH_POSTS_SUCCESS:
             return {...state, isFetching: false, chefPosts: action.payload};
-        case FETCH_CHEFS_FAILURE:
+        case FETCH_POSTS_FAILURE:
             return {...state, errorFetching: action.payload, isFetching: false};
 
         case POST_CHEFS_START:
             return {...state, errorPosting: null, isPosting: true};
         case POST_CHEFS_SUCCESS:
-            return {...state, isPosting: false, chefPosts: action.payload};
+            return {...state, isPosting: false, chefPosts: [...state.chefPosts, action.payload]};
         case POST_CHEFS_FAILURE:
             return{...state, errorPosting: action.payload, isPosting: false};
 
         case START_DELETE_POST:
             return {...state, errorDeleting: null, isDeleting: true};
         case DELETE_POST_SUCCESS:
-            return {...state, isDeleting: false, chefPosts: action.payload};
+            return {...state, isDeleting: false, chefPosts: state.chefPosts.filter(post => post.id !== action.payload )};
         case DELETE_POST_FAILURE:
             return {...state, errorDeleting: action.payload, isDeleting: false};
         

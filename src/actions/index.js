@@ -62,17 +62,17 @@ export const logoutUser = () => dispatch => {
 
 // FETCH THE CHEFS DATA 
 
-export const FETCH_CHEFS_START = 'FETCH_CHEFS_START';
-export const FETCH_CHEFS_SUCCESS = 'FETCH_CHEFS_SUCCESS';
-export const FETCH_CHEFS_FAILURE = 'FETCH_CHEFS_FAILURE';
+export const FETCH_POSTS_START = 'FETCH_CHEFS_START';
+export const FETCH_POSTS_SUCCESS = 'FETCH_CHEFS_SUCCESS';
+export const FETCH_POSTS_FAILURE = 'FETCH_CHEFS_FAILURE';
 
 export const fetchChefs = () => dispatch => {
-    dispatch({ type: FETCH_CHEFS_START });
+    dispatch({ type: FETCH_POSTS_START });
 
     axios
         .get('/api/posts/all')
-        .then(res => dispatch({ type: FETCH_CHEFS_SUCCESS, payload: res.data }))
-        .catch(err => dispatch({ type: FETCH_CHEFS_FAILURE, payload: err.response }));
+        .then(res => dispatch({ type: FETCH_POSTS_SUCCESS, payload: res.data }))
+        .catch(err => dispatch({ type: FETCH_POSTS_FAILURE, payload: err.response }));
 };
 
 // POST THE NEW CHEF DATA
@@ -86,7 +86,7 @@ export const postChefs = data => dispatch => {
 
     axiosWithAuth()
         .post('/api/posts/', data)
-        .then(res => dispatch({ type: POST_CHEFS_SUCCESS, payload: res.data }))
+        .then(res => dispatch({ type: POST_CHEFS_SUCCESS, payload: data }))
         .catch(err => dispatch({ type: POST_CHEFS_FAILURE, payload: err.response }));
 };
 
@@ -99,7 +99,7 @@ export const deletePost = id => dispatch => {
 
     axiosWithAuth()
         .delete(`/api/posts/${id}`)
-        .then(res => dispatch({ type: DELETE_POST_SUCCESS, payload: res.data }))
+        .then(res => dispatch({ type: DELETE_POST_SUCCESS, payload: id }))
         .catch(err => dispatch({ type: DELETE_POST_FAILURE, payload: err}));
 };
 
@@ -107,11 +107,11 @@ export const START_EDIT_POST = 'START_EDIT_POST';
 export const EDIT_POST_SUCCESS = 'EDIT_POST_SUCCESS';
 export const EDIT_POST_FAILURE = 'EDIT_POST_FAILURE';
 
-export const editPost = id => dispatch => {
+export const editPost = (id, data) => dispatch => {
     dispatch({ type: START_EDIT_POST });
 
     axiosWithAuth() 
-        .put(`/api/posts/${id}`)
-        .then(res => dispatch({ type: EDIT_POST_SUCCESS, payload: res.data }))
+        .put(`/api/posts/${id}`, data)
+        .then(res => dispatch({ type: EDIT_POST_SUCCESS, payload: data }))
         .catch(err => dispatch({ type: EDIT_POST_FAILURE, payload: err }));
 };

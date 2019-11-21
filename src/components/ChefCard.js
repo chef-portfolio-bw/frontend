@@ -1,5 +1,7 @@
 import React from "react";
 // the actual chef card.
+import { useDispatch } from 'react-redux';
+import { deletePost } from '../actions';
 import { makeStyles } from "@material-ui/core/styles";
 import { red } from "@material-ui/core/colors";
 import {
@@ -23,7 +25,7 @@ import ChefPostsCards from "./ChefPostsCards";
 const useStyles = makeStyles(theme => ({
   card: {
     width: 300,
-    height: 450
+    height: 450,
   },
   media: {
     height: 0,
@@ -45,12 +47,20 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const ChefCard = ({ key, name, location, recipe, image, ingred }) => {
+const ChefCard = ({ name, location, recipe, image, ingred, id }) => {
   const classes = useStyles();
+  const dispatch = useDispatch();
 
+  const removePost = id => {
+    console.log('this is the id', id)
+    dispatch(deletePost(id));
+  }
+  const editPost = id => {
+    dispatch(editPost(name, location, recipe, ingred));
+  }
   return (
     <div className="card-container">
-      <Card id={key} className={classes.card}>
+      <Card id={id} className={classes.card}>
         <CardHeader
           avatar={
             <Avatar aria-label="recipe" className={classes.avatar}>
@@ -58,7 +68,7 @@ const ChefCard = ({ key, name, location, recipe, image, ingred }) => {
             </Avatar>
           }
           action={
-            <IconButton aria-label="settings">
+            <IconButton aria-label="settings" onClick={() => editPost(name, location, recipe, ingred)}>
               <MoreVertIcon />
             </IconButton>
           }
@@ -80,7 +90,7 @@ const ChefCard = ({ key, name, location, recipe, image, ingred }) => {
           <IconButton>
             <ExpandMoreIcon />
           </IconButton>
-          <IconButton>
+          <IconButton onClick={() => removePost(id)}>
             <DeleteIcon />
           </IconButton>
           <Link to="/path" type="submit" className={classes.button}>
