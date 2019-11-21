@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
-// import { useDispatch } from 'react-redux';
+import { useDispatch, connect } from 'react-redux';
 //import local
-// import axios from "axios";
-//import chefs from "../data/data";
 import ChefCard from "./ChefCard";
 import NewChefPost from './NewChefPost';
 import "./ChefStyling.css";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
+import { FETCH_POSTS_SUCCESS } from "../actions";
 
-const ChefData = () => {
+const ChefData = props => {
   const [data, setData] = useState([]);
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   // ========
   useEffect(() => {
@@ -18,6 +17,7 @@ const ChefData = () => {
     axiosWithAuth()
       .get("/api/posts/all")
       .then(res => {
+        dispatch({ type: FETCH_POSTS_SUCCESS, payload: res.data })
         setData(res.data);
         console.log(res.data);
       })
@@ -42,10 +42,10 @@ const ChefData = () => {
         )
       })} */}
       <div className="Chef-Card">
-        {data.map(chef => {
+        {props.chefPosts.map(chef => {
           return (
             <ChefCard
-              key={chef.id}
+              id={chef.id}
               name={chef.chef_name}
               location={chef.chef_location}
               recipe={chef.recipe_title}
@@ -59,4 +59,8 @@ const ChefData = () => {
   );
 };
 
-export default ChefData;
+const mapStateToProps = (state) => {
+  return {chefPosts: state.chefPosts}
+}
+
+export default connect(mapStateToProps, {})(ChefData);

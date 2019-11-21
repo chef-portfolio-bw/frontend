@@ -4,8 +4,3 @@
     align-content: center;
     display: flex;
 }
-
-.card-container{
-    display: flex;
-    flex-flow: row wrap;
-}

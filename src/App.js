@@ -19,7 +19,9 @@ function App() {
       <NavBar />
       <Router history={history}>
         <div className="App">
+          <div className="card-container">
           <PrivateRoute exact path="/" component={ChefData} />
+          </div>
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
           {/* <ViewChefs /> */}
