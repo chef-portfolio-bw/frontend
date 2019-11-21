@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from "react";
+// import { useDispatch } from 'react-redux';
 //import local
 import axios from "axios";
 //import chefs from "../data/data";
 import ChefCard from "./ChefCard";
 import "./ChefStyling.css";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 const ChefData = () => {
   const [data, setData] = useState([]);
+  // const dispatch = useDispatch();
 
   // ========
   useEffect(() => {
     // setData(chefs);
-    axios
-      .get("http://localhost:5000/api/chefs")
+    axiosWithAuth()
+      .get("/api/posts/all")
       .then(res => {
         setData(res.data);
         console.log(res.data);
@@ -26,24 +29,33 @@ const ChefData = () => {
 
   return (
     <div>
-      <div className="Chef-Card">
+      {data.map(chef => {
+        return (<div key={chef.id}>
+          <h1>{chef.chef_name}</h1>
+          <p>{chef.chef_location}</p>
+          <p>{chef.recipe_title}</p>
+          <img src={chef.item_photo} />
+          <p>{chef.item_ingredients}</p>
+        </div>
+        )
+      })}
+      {/* <div className="Chef-Card">
         {data.map(chef => {
           return (
-            <ChefCard
-              id={chef.id}
-              name={chef.name}
-              location={chef.location}
-              email={chef.email}
-              bio={chef.bio}
-              posts={chef.posts}
-              post_titles={chef.posts.map(post => {
-                return post.title;
-              })}
-            />
+            // <ChefCard
+            //   id={chef.id}
+            //   name={chef.name}
+            //   location={chef.location}
+            //   email={chef.email}
+            //   bio={chef.bio}
+            //   posts={chef.posts}
+            //   post_titles={chef.posts.map(post => {
+            //     return post.title;
+            //   })}
+            // />
           );
         })}
-      </div>
-      <h1> RecipeList</h1>
+      </div> */}
     </div>
   );
 };
