@@ -17,7 +17,6 @@ As a food blogger, I want to be able to show off my work and recipes. I have a l
 
 - Chef's can sign up + login and create a post for their food blog that is attached to their page. (I think for now we should only have a log in, as there will be 3 chefs that we want to log in as to show off functionality of a chef)
 - A user can enter the site without authentication in order to view the chef's webpage and visit blog posts.
-- User's can search through recipe title, meal type, chef, and ingredients.
 
 ## Getting Started
 
