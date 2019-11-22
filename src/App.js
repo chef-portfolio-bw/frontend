@@ -24,13 +24,7 @@ function App() {
           </div>
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
-          {/* <ViewChefs /> */}
-          {/* <ChefData
-          // path="/"
-          // render={...props}
-          /> */}
-          {/* <NewChefPost /> */}
-          {/* make sure to delete before saving  */}
+          
         </div>
       </Router>
     </div>

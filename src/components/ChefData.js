@@ -7,6 +7,8 @@ import "./ChefStyling.css";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import { FETCH_POSTS_SUCCESS } from "../actions";
 
+// import { Route, Link } from "react-router-dom";
+
 const ChefData = props => {
   const [data, setData] = useState([]);
   const dispatch = useDispatch();
@@ -30,17 +32,7 @@ const ChefData = props => {
 
   return (
     <div>
-       <NewChefPost />
-      {/* {data.map(chef => {
-        return (<div key={chef.id}>
-          <h1>{chef.chef_name}</h1>
-          <p>{chef.chef_location}</p>
-          <p>{chef.recipe_title}</p>
-          <img src={chef.item_photo} />
-          <p>{chef.item_ingredients}</p>
-        </div>
-        )
-      })} */}
+      <NewChefPost/>
       <div className="Chef-Card">
         {props.chefPosts.map(chef => {
           return (

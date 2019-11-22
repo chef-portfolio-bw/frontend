@@ -5,8 +5,65 @@ import { postChefs } from '../actions';
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import Cheesecake from '../images/Cheesecake.jpg';
+import ChipsAndGuacamole from '../images/ChipsAndGuacamole.jpg';
+import KnifeAndSteel from '../images/KnifeAndSteel.jpg';
 
-const useStyles = makeStyles({})
+const useStyles = makeStyles({
+        FormContainer: {
+        marginTop: "5%",
+        display: "flex",
+        flexDirection: "row"
+    },
+
+    leftDiv: {
+        display: "flex",
+        flexDirection: "column",
+        width: "40%",
+        marginTop: "10%",
+        marginLeft: "10%"
+    },
+
+    username: {
+        color: "white",
+        marginTop: "25%",
+        marginBottom: "5%"
+    },
+
+    password: {
+        color: "white",
+        marginBottom: "5%"
+    },
+
+
+    submitForm: {
+        color: "white",
+        backgroundColor: "#CA7512",
+        marginTop: "10%"
+    },
+
+    rightDiv: {
+        width: "40%",
+    },
+
+    imgOne: {
+        width: "40%",
+        borderRadius: "10px"
+    },
+
+    imgTwo: {
+        width: "40%",
+        marginLeft: "4%",
+        borderRadius: "10px"
+    },
+
+    imgThree: {
+        width: "84%",
+        marginTop: "4%",
+        maxHeight: "300px",
+        borderRadius: "10px"
+    },
+})
 
 
 const NewChefPost = props => {
@@ -35,9 +92,9 @@ const NewChefPost = props => {
     };
 
     return (
-        <div className={classes.signInContainer}>
+        <div className={classes.FormContainer}>
             <form onSubmit={handleSubmit} className={classes.leftDiv}>
-                <TextField
+                <TextField required
                     label="Location"
                     className={classes.location}
                     type="text"
@@ -47,7 +104,7 @@ const NewChefPost = props => {
                     onChange={e => setChefLocation(e.target.value)}
                 />
 
-                <TextField
+                <TextField required
                     label="Chef Name"
                     className={classes.chefName}
                     type="text"
@@ -57,7 +114,7 @@ const NewChefPost = props => {
                     onChange={e => setChefName(e.target.value)}
                 />
 
-                <TextField
+                <TextField required
                     label="Recipe Name"
                     className={classes.recipeName}
                     type="textarea"
@@ -67,7 +124,7 @@ const NewChefPost = props => {
                     onChange={e => setRecipeName(e.target.value)}
                 />
 
-                <TextField
+                <TextField required
                     label="Ingredients"
                     className={classes.ingredients}
                     type="textarea"
@@ -80,13 +137,13 @@ const NewChefPost = props => {
                 <Button type="submit" className={classes.submitForm}> Post </Button>
             </form>
 
-            {/* <div className={classes.rightDiv}>
+            <div className={classes.rightDiv}>
                 <div className={classes.rightTop}>
                     <img className={classes.imgOne} src={Cheesecake} alt="Cheesecake" />
                     <img className={classes.imgTwo} src={ChipsAndGuacamole} alt="chips and guacamole" />
                 </div>
                 <img className={classes.imgThree} src={KnifeAndSteel} alt="knife on board" />
-            </div> */}
+            </div>
         </div>
     );
 };
