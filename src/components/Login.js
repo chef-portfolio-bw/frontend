@@ -87,7 +87,7 @@ const Login = props => {
     return (
         <div className={classes.signInContainer}>
             <form onSubmit={handleSubmit} className={classes.leftDiv}>
-                <TextField
+                <TextField required
                     className={classes.username}
                     type="text"
                     name="username"
@@ -95,7 +95,7 @@ const Login = props => {
                     value={username}
                     onChange={e => setUsername(e.target.value)}
                 />
-                <TextField
+                <TextField required
                     className={classes.password}
                     type="password"
                     name="password"
